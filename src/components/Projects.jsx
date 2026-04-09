@@ -23,7 +23,7 @@ const projects = [
   },
   {
     title: "Expense-Tracker",
-    description: "A smart expense tracker for travelers and groups. Track shared expenses, split bills, and view spending breakdowns.",
+    description: "A smart expense tracker in progress.",
     tech: ["ASP.NET Core", "C#", "Tailwind CSS"],
     github: "https://github.com/kalsaraashish/Expense-Tracker",
     bgColor: "from-blue-500/20 to-blue-500/5",

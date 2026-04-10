@@ -14,8 +14,8 @@ const projects = [
     description: "A web-based system for managing college events where students can register and admins can create and manage events. Built with ASP.NET Core and React for a smooth and user-friendly experience.",
     tech: ["React", "ASP.NET Core Web API", "C#", "Tailwind CSS"],
     github: "https://github.com/kalsaraashish/College-Event-Management-System",
-    bgColor: "from-orange-500/20 to-orange-500/5",
-    icon: <GraduationCap className="text-orange-500" size={56} />,
+    bgColor: "from-blue-500/20 to-blue-500/5",
+    icon: <GraduationCap className="text-blue-500" size={56} />,
     links: [
       { name: "User App", url: "https://mymealuser.vercel.app", icon: <User size={14} /> },
       { name: "Vendor App", url: "https://mymealvendor.vercel.app", icon: <Store size={14} /> }
@@ -46,9 +46,9 @@ export default function Projects() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
-            Featured <span className="text-orange-500">Projects</span>
+            Featured <span className="text-blue-500">Projects</span>
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-orange-600 to-orange-400 mx-auto rounded-full" />
+          <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-blue-400 mx-auto rounded-full" />
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -59,7 +59,7 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="glass-panel overflow-hidden border-slate-200/50 dark:border-slate-800/50 hover:border-orange-500/30 transition-all duration-300 flex flex-col"
+              className="glass-panel overflow-hidden border-slate-200/50 dark:border-slate-800/50 hover:border-blue-500/30 transition-all duration-300 flex flex-col"
             >
               {/* Simple Placeholder Visual */}
               <div className={`aspect-video bg-gradient-to-br ${project.bgColor} flex items-center justify-center border-b border-slate-200/50 dark:border-slate-800/50 relative overflow-hidden group`}>
@@ -79,7 +79,7 @@ export default function Projects() {
 
               <div className="p-6 md:p-8 flex-1 flex flex-col items-center text-center md:items-start md:text-left">
                 <div className="flex justify-between items-start w-full mb-4">
-                  <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white group-hover:text-orange-500 dark:group-hover:text-orange-400 transition-colors">
+                  <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors">
                     {project.title}
                   </h3>
                   <a
@@ -111,7 +111,7 @@ export default function Projects() {
                       href={link.url}
                       target="_blank"
                       rel="noreferrer"
-                      className="flex items-center gap-1.5 text-[10px] md:text-xs font-bold text-orange-500 hover:text-orange-400 transition-colors uppercase tracking-widest group/link"
+                      className="flex items-center gap-1.5 text-[10px] md:text-xs font-bold text-blue-500 hover:text-blue-400 transition-colors uppercase tracking-widest group/link"
                     >
                       {link.icon} {link.name}
                       <ArrowRight size={10} className="opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all" />

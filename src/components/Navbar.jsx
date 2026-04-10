@@ -32,7 +32,7 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
         <a href="#home" className="text-2xl font-bold tracking-tighter text-slate-900 dark:text-white">
-          Ashish<span className="text-orange-500">.</span>
+          Ashish<span className="text-blue-500">.</span>
         </a>
 
         <div className="flex items-center gap-4 md:gap-8">
@@ -42,14 +42,14 @@ export default function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-orange-500 dark:hover:text-orange-400 transition-colors"
+                className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
               >
                 {link.name}
               </a>
             ))}
             <a
               href="#contact"
-              className="px-5 py-2.5 bg-orange-500 hover:bg-orange-600 text-white text-sm font-medium rounded-full transition-all hover:shadow-[0_0_15px_rgba(249,115,22,0.4)]"
+              className="px-5 py-2.5 bg-blue-500 hover:bg-blue-600 text-white text-sm font-medium rounded-full transition-all hover:shadow-[0_0_15px_rgba(59,130,246,0.4)]"
             >
               Let's Talk
             </a>
@@ -88,16 +88,16 @@ export default function Navbar() {
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-lg font-medium text-slate-600 dark:text-slate-300 hover:text-orange-500 dark:hover:text-orange-400 py-3 border-b border-slate-200/50 dark:border-slate-800/50 flex items-center justify-between group"
+                className="text-lg font-medium text-slate-600 dark:text-slate-300 hover:text-blue-500 dark:hover:text-blue-400 py-3 border-b border-slate-200/50 dark:border-slate-800/50 flex items-center justify-between group"
               >
                 {link.name}
-                <div className="w-1.5 h-1.5 rounded-full bg-orange-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="w-1.5 h-1.5 rounded-full bg-blue-500 opacity-0 group-hover:opacity-100 transition-opacity" />
               </a>
             ))}
             <a
               href="#contact"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="mt-4 px-6 py-4 bg-orange-500 hover:bg-orange-600 text-white text-center font-bold rounded-xl transition-all shadow-[0_4px_20px_rgba(249,115,22,0.3)]"
+              className="mt-4 px-6 py-4 bg-blue-500 hover:bg-blue-600 text-white text-center font-bold rounded-xl transition-all shadow-[0_4px_20px_rgba(59,130,246,0.3)]"
             >
               Let's Talk
             </a>

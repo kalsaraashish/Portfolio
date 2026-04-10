@@ -22,9 +22,9 @@ export default function Contact() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-6xl font-bold text-slate-900 dark:text-white mb-6">
-            Let's <span className="text-orange-500">Connect</span>
+            Let's <span className="text-blue-500">Connect</span>
           </h2>
-          <div className="w-24 h-1.5 bg-gradient-to-r from-orange-600 to-orange-400 mx-auto rounded-full mb-8" />
+          <div className="w-24 h-1.5 bg-gradient-to-r from-blue-600 to-blue-400 mx-auto rounded-full mb-8" />
           <p className="text-slate-600 dark:text-slate-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
             I'm always open to new opportunities and interesting collaborations. Feel free to reach out through any of these platforms!
           </p>
@@ -40,15 +40,15 @@ export default function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             whileHover={{ y: -8 }}
-            className="glass-panel p-8 md:p-10 flex flex-col items-center gap-6 group hover:border-orange-500/40 transition-all duration-300"
+            className="glass-panel p-8 md:p-10 flex flex-col items-center gap-6 group hover:border-blue-500/40 transition-all duration-300"
           >
-            <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-orange-500/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-              <Mail className="text-orange-500" size={32} />
+            <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-blue-500/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+              <Mail className="text-blue-500" size={32} />
             </div>
             <div className="text-center">
               <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-2">Send an Email</h3>
               <p className="text-slate-500 text-xs md:text-sm mb-6">Direct communication via Gmail</p>
-              <div className="flex items-center justify-center gap-2 text-orange-400 font-mono text-xs md:text-sm group-hover:gap-4 transition-all">
+              <div className="flex items-center justify-center gap-2 text-blue-400 font-mono text-xs md:text-sm group-hover:gap-4 transition-all">
                 Compose Now <ArrowRight size={16} />
               </div>
             </div>

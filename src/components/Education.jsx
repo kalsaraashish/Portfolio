@@ -31,9 +31,9 @@ export default function Education() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
-            My <span className="text-orange-500">Education</span>
+            My <span className="text-blue-500">Education</span>
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-orange-600 to-orange-400 mx-auto rounded-full" />
+          <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-blue-400 mx-auto rounded-full" />
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -44,18 +44,18 @@ export default function Education() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: idx * 0.2 }}
-              className="glass-panel p-8 relative group hover:border-orange-500/30 transition-all duration-300"
+              className="glass-panel p-8 relative group hover:border-blue-500/30 transition-all duration-300"
             >
-              <div className="absolute top-0 right-0 w-24 h-24 bg-orange-500/5 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2 group-hover:bg-orange-500/10 transition-colors" />
+              <div className="absolute top-0 right-0 w-24 h-24 bg-blue-500/5 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2 group-hover:bg-blue-500/10 transition-colors" />
 
               <div className="flex flex-col items-center text-center md:items-start md:text-left md:flex-row gap-6">
-                <div className="w-14 h-14 rounded-xl bg-orange-500/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
-                  <GraduationCap className="text-orange-500" size={28} />
+                <div className="w-14 h-14 rounded-xl bg-blue-500/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
+                  <GraduationCap className="text-blue-500" size={28} />
                 </div>
 
                 <div className="flex-1 w-full">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-center md:justify-between gap-3 mb-4">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-200/50 dark:bg-slate-800/50 text-orange-600 dark:text-orange-400 text-[10px] sm:text-xs font-semibold border border-slate-300/50 dark:border-slate-700/50 w-fit mx-auto sm:mx-0">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-200/50 dark:bg-slate-800/50 text-blue-600 dark:text-blue-400 text-[10px] sm:text-xs font-semibold border border-slate-300/50 dark:border-slate-700/50 w-fit mx-auto sm:mx-0">
                       <Calendar size={12} />
                       {edu.duration}
                     </span>
@@ -65,10 +65,10 @@ export default function Education() {
                     </span>
                   </div>
 
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-1 group-hover:text-orange-500 dark:group-hover:text-orange-400 transition-colors">
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-1 group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors">
                     {edu.degree}
                   </h3>
-                  <p className="text-orange-500 font-medium text-sm mb-4">
+                  <p className="text-blue-500 font-medium text-sm mb-4">
                     {edu.institution}
                   </p>
                   <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">

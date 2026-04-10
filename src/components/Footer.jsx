@@ -11,14 +11,14 @@ export default function Footer() {
         </div>
 
         <div className="flex items-center justify-center gap-6 flex-wrap">
-          <a href="#home" className="text-sm text-slate-600 dark:text-slate-500 hover:text-orange-500 transition-colors">Home</a>
-          <a href="#about" className="text-sm text-slate-600 dark:text-slate-500 hover:text-orange-500 transition-colors">About</a>
-          <a href="#projects" className="text-sm text-slate-600 dark:text-slate-500 hover:text-orange-500 transition-colors">Projects</a>
-          <a href="#contact" className="text-sm text-slate-600 dark:text-slate-500 hover:text-orange-500 transition-colors">Contact</a>
+          <a href="#home" className="text-sm text-slate-600 dark:text-slate-500 hover:text-blue-500 transition-colors">Home</a>
+          <a href="#about" className="text-sm text-slate-600 dark:text-slate-500 hover:text-blue-500 transition-colors">About</a>
+          <a href="#projects" className="text-sm text-slate-600 dark:text-slate-500 hover:text-blue-500 transition-colors">Projects</a>
+          <a href="#contact" className="text-sm text-slate-600 dark:text-slate-500 hover:text-blue-500 transition-colors">Contact</a>
         </div>
 
         <div className="text-slate-600 dark:text-slate-500 text-sm flex items-center gap-2 opacity-60">
-          <div className="w-1 h-1 rounded-full bg-orange-500" />
+          <div className="w-1 h-1 rounded-full bg-blue-500" />
           Designed in React
         </div>
       </div>

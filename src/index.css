@@ -10,9 +10,9 @@
   --color-slate-900: #0f172a;
   --color-slate-950: #020617;
   
-  --color-orange-400: #fb923c;
-  --color-orange-500: #f97316;
-  --color-orange-600: #ea580c;
+  --color-blue-400: #60a5fa;
+  --color-blue-500: #3b82f6;
+  --color-blue-600: #2563eb;
 }
 
 @layer base {
@@ -21,7 +21,7 @@
     overflow-x: hidden;
   }
   body {
-    @apply bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-200 antialiased selection:bg-orange-500/30 selection:text-orange-900 dark:selection:text-orange-200;
+    @apply bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-200 antialiased selection:bg-blue-500/30 selection:text-blue-900 dark:selection:text-blue-200;
     overflow-x: hidden;
   }
 }
@@ -34,6 +34,6 @@
     @apply bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200/50 dark:border-slate-800/50;
   }
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-orange-600 dark:from-orange-400 dark:to-orange-600;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-blue-600 dark:from-blue-400 dark:to-blue-600;
   }
 }

@@ -81,10 +81,26 @@ export default function Hero() {
           <div className="relative w-full aspect-square max-w-lg ml-auto">
             <div className="absolute inset-0 glass-panel border-slate-700/50 bg-slate-900/80 shadow-2xl flex flex-col overflow-hidden group hover:shadow-orange-500/10 transition-all duration-500">
               <div className="h-10 border-b border-slate-800 flex items-center justify-between px-4 bg-slate-950/50">
-                <div className="flex gap-2">
-                  <div className="w-3 h-3 rounded-full bg-red-500/50" />
-                  <div className="w-3 h-3 rounded-full bg-yellow-500/50" />
-                  <div className="w-3 h-3 rounded-full bg-green-500/50" />
+                <div className="flex gap-2 group">
+                  <div className="w-3 h-3 rounded-full bg-red-500/50 group-hover:bg-red-500 flex items-center justify-center transition-all duration-300 cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" className="opacity-0 group-hover:opacity-50 transition-opacity duration-300">
+                      <line x1="18" y1="6" x2="6" y2="18"></line>
+                      <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                  </div>
+                  <div className="w-3 h-3 rounded-full bg-yellow-500/50 group-hover:bg-yellow-500 flex items-center justify-center transition-all duration-300 cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" className="opacity-0 group-hover:opacity-50 transition-opacity duration-300">
+                      <line x1="4" y1="12" x2="20" y2="12"></line>
+                    </svg>
+                  </div>
+                  <div className="w-3 h-3 rounded-full bg-green-500/50 group-hover:bg-green-500 flex items-center justify-center transition-all duration-300 cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" className="opacity-0 group-hover:opacity-50 transition-opacity duration-300">
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <polyline points="9 21 3 21 3 15"></polyline>
+                      <line x1="21" y1="3" x2="14" y2="10"></line>
+                      <line x1="3" y1="21" x2="10" y2="14"></line>
+                    </svg>
+                  </div>
                 </div>
                 <div className="text-[10px] uppercase tracking-widest text-slate-500 font-mono">portfolio.js</div>
               </div>

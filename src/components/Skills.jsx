@@ -46,10 +46,7 @@ const skills = [
     name: "GitHub",
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
   },
-  {
-    name: "Antigravity",
-    logo: "https://unpkg.com/lucide-static@latest/icons/bot.svg",
-  },
+
 ];
 
 const containerVariants = {

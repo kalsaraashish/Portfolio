@@ -21,7 +21,7 @@ const educationData = [
 
 export default function Education() {
   return (
-    <section id="education" className="py-24 relative bg-slate-900/20">
+    <section id="education" className="py-24 relative bg-slate-100/50 dark:bg-slate-900/20">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -30,7 +30,7 @@ export default function Education() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
             My <span className="text-orange-500">Education</span>
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-orange-600 to-orange-400 mx-auto rounded-full" />
@@ -55,7 +55,7 @@ export default function Education() {
 
                 <div className="flex-1 w-full">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-center md:justify-between gap-3 mb-4">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-800/50 text-orange-400 text-[10px] sm:text-xs font-semibold border border-slate-700/50 w-fit mx-auto sm:mx-0">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-200/50 dark:bg-slate-800/50 text-orange-600 dark:text-orange-400 text-[10px] sm:text-xs font-semibold border border-slate-300/50 dark:border-slate-700/50 w-fit mx-auto sm:mx-0">
                       <Calendar size={12} />
                       {edu.duration}
                     </span>
@@ -65,13 +65,13 @@ export default function Education() {
                     </span>
                   </div>
 
-                  <h3 className="text-xl font-bold text-white mb-1 group-hover:text-orange-400 transition-colors">
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-1 group-hover:text-orange-500 dark:group-hover:text-orange-400 transition-colors">
                     {edu.degree}
                   </h3>
                   <p className="text-orange-500 font-medium text-sm mb-4">
                     {edu.institution}
                   </p>
-                  <p className="text-slate-400 leading-relaxed text-sm">
+                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">
                     {edu.description}
                   </p>
                 </div>

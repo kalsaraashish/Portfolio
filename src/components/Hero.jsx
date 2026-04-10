@@ -33,18 +33,18 @@ export default function Hero() {
             <span className="text-sm font-medium text-orange-400">Available for work</span>
           </div>
 
-          <h1 className="text-4xl md:text-7xl font-bold tracking-tight text-white leading-[1.1]">
+          <h1 className="text-4xl md:text-7xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.1]">
             Hi, I'm <br />
             <span className="text-gradient">Ashish Kalsara</span>
           </h1>
 
-          <h2 className="text-lg md:text-2xl font-medium text-slate-400">
+          <h2 className="text-lg md:text-2xl font-medium text-slate-600 dark:text-slate-400">
             Full Stack Developer
             {/* <span className="text-orange-500">
               (</span>MERN Stack<span className="text-orange-500">)</span> */}
           </h2>
 
-          <p className="text-slate-400 text-base md:text-lg max-w-lg leading-relaxed">
+          <p className="text-slate-600 dark:text-slate-400 text-base md:text-lg max-w-lg leading-relaxed">
             I build modern, scalable, and responsive web applications using React and ASP.NET Core.
             Passionate about clean UI, RESTful APIs, and solving real-world problems with efficient code.</p>
 
@@ -53,19 +53,19 @@ export default function Hero() {
               View Projects
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </a>
-            <a href="#contact" className="w-full sm:w-auto px-8 py-4 glass-panel text-white font-bold hover:bg-slate-800 transition-colors text-center border-slate-700/50">
+            <a href="#contact" className="w-full sm:w-auto px-8 py-4 glass-panel text-slate-900 dark:text-white font-bold hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-center border-slate-200/50 dark:border-slate-700/50">
               Contact Me
             </a>
           </div>
 
-          <div className="flex items-center justify-center md:justify-start gap-8 pt-8 md:pt-6 border-t border-slate-800/50 md:border-t-0 mt-2 md:mt-0 w-full md:w-auto">
-            <a href="https://github.com/kalsaraashish" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-white transition-colors">
+          <div className="flex items-center justify-center md:justify-start gap-8 pt-8 md:pt-6 border-t border-slate-200/50 dark:border-slate-800/50 md:border-t-0 mt-2 md:mt-0 w-full md:w-auto">
+            <a href="https://github.com/kalsaraashish" target="_blank" rel="noreferrer" className="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">
               <Github size={24} />
             </a>
-            <a href="https://www.linkedin.com/in/ashish-kalsara-4b3217227" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-[#0A66C2] transition-colors">
+            <a href="https://www.linkedin.com/in/ashish-kalsara-4b3217227" target="_blank" rel="noreferrer" className="text-slate-500 dark:text-slate-400 hover:text-[#0A66C2] transition-colors">
               <Linkedin size={24} />
             </a>
-            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ashishkalsara@gmail.com" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-orange-500 transition-colors">
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ashishkalsara@gmail.com" target="_blank" rel="noreferrer" className="text-slate-500 dark:text-slate-400 hover:text-orange-500 transition-colors">
               <Mail size={24} />
             </a>
           </div>
@@ -79,8 +79,8 @@ export default function Hero() {
         >
           {/* Abstract geometric shape / code window representation */}
           <div className="relative w-full aspect-square max-w-lg ml-auto">
-            <div className="absolute inset-0 glass-panel border-slate-700/50 bg-slate-900/80 shadow-2xl flex flex-col overflow-hidden group hover:shadow-orange-500/10 transition-all duration-500">
-              <div className="h-10 border-b border-slate-800 flex items-center justify-between px-4 bg-slate-950/50">
+            <div className="absolute inset-0 glass-panel border-slate-200/50 dark:border-slate-700/50 bg-white/80 dark:bg-slate-900/80 shadow-2xl flex flex-col overflow-hidden group hover:shadow-orange-500/10 transition-all duration-500">
+              <div className="h-10 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-4 bg-slate-50/80 dark:bg-slate-950/50">
                 <div className="flex gap-2 group">
                   <div className="w-3 h-3 rounded-full bg-red-500/50 group-hover:bg-red-500 flex items-center justify-center transition-all duration-300 cursor-pointer">
                     <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" className="opacity-0 group-hover:opacity-50 transition-opacity duration-300">
@@ -104,10 +104,10 @@ export default function Hero() {
                 </div>
                 <div className="text-[10px] uppercase tracking-widest text-slate-500 font-mono">portfolio.js</div>
               </div>
-              <div className="p-8 font-mono text-sm leading-relaxed flex-1 overflow-hidden">
+              <div className="p-8 font-mono text-sm leading-relaxed flex-1 overflow-hidden bg-sky-50 dark:bg-transparent">
                 <div className="flex gap-4">
-                  <span className="text-slate-600 select-none">01</span>
-                  <p className="text-orange-400">class <span className="text-white">Developer</span> {'{'}</p>
+                  <span className="text-slate-400 dark:text-slate-600 select-none">01</span>
+                  <p className="text-orange-500 dark:text-orange-400">class <span className="text-slate-900 dark:text-white">Developer</span> {'{'}</p>
                 </div>
                 <div className="flex gap-4">
                   <span className="text-slate-600 select-none">02</span>
@@ -133,8 +133,8 @@ export default function Hero() {
                   <p className="pl-4 text-blue-400">isAvailable() {'{'}</p>
                 </div>
                 <div className="flex gap-4">
-                  <span className="text-slate-600 select-none">08</span>
-                  <p className="pl-8 text-orange-400">return <span className="text-white">true</span>;</p>
+                  <span className="text-slate-400 dark:text-slate-600 select-none">08</span>
+                  <p className="pl-8 text-orange-500 dark:text-orange-400">return <span className="text-slate-900 dark:text-white">true</span>;</p>
                 </div>
                 <div className="flex gap-4">
                   <span className="text-slate-600 select-none">09</span>
@@ -147,8 +147,8 @@ export default function Hero() {
               </div>
 
               {/* Terminal mock bottom */}
-              <div className="h-32 bg-slate-950/80 p-4 border-t border-slate-800 font-mono text-xs">
-                <div className="flex gap-2 text-slate-400 mb-1">
+              <div className="h-32 bg-slate-50/90 dark:bg-slate-950/80 p-4 border-t border-slate-200 dark:border-slate-800 font-mono text-xs">
+                <div className="flex gap-2 text-slate-500 dark:text-slate-400 mb-1">
                   <span className="text-green-500">➜</span>
                   <span>portfolio-v2</span>
                   <span className="text-blue-500">git:(main)</span>

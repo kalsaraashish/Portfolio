@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
+@custom-variant dark (&:is(.dark *));
+
 @theme {
   --font-sans: "Inter", sans-serif;
   
@@ -19,19 +21,19 @@
     overflow-x: hidden;
   }
   body {
-    @apply bg-slate-950 text-slate-200 antialiased selection:bg-orange-500/30 selection:text-orange-200;
+    @apply bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-200 antialiased selection:bg-orange-500/30 selection:text-orange-900 dark:selection:text-orange-200;
     overflow-x: hidden;
   }
 }
 
 @layer utilities {
   .glass-panel {
-    @apply bg-slate-900/50 backdrop-blur-lg border border-slate-800/50 rounded-2xl;
+    @apply bg-white/70 dark:bg-slate-900/50 backdrop-blur-lg border border-slate-200/50 dark:border-slate-800/50 rounded-2xl shadow-sm dark:shadow-none;
   }
   .glass-nav {
-    @apply bg-slate-950/80 backdrop-blur-md border-b border-slate-800/50;
+    @apply bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200/50 dark:border-slate-800/50;
   }
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-orange-600;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-orange-600 dark:from-orange-400 dark:to-orange-600;
   }
 }

@@ -45,7 +45,7 @@ export default function Projects() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
             Featured <span className="text-orange-500">Projects</span>
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-orange-600 to-orange-400 mx-auto rounded-full" />
@@ -59,15 +59,15 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="glass-panel overflow-hidden border-slate-800/50 hover:border-orange-500/30 transition-all duration-300 flex flex-col"
+              className="glass-panel overflow-hidden border-slate-200/50 dark:border-slate-800/50 hover:border-orange-500/30 transition-all duration-300 flex flex-col"
             >
               {/* Simple Placeholder Visual */}
-              <div className={`aspect-video bg-gradient-to-br ${project.bgColor} flex items-center justify-center border-b border-slate-800/50 relative overflow-hidden group`}>
-                <div className="absolute inset-0 bg-slate-950/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className={`aspect-video bg-gradient-to-br ${project.bgColor} flex items-center justify-center border-b border-slate-200/50 dark:border-slate-800/50 relative overflow-hidden group`}>
+                <div className="absolute inset-0 bg-slate-50/20 dark:bg-slate-950/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <motion.div
                   whileHover={{ scale: 1.15, rotate: -5 }}
                   transition={{ type: 'spring', stiffness: 300 }}
-                  className="relative z-10 p-6 rounded-2xl bg-slate-950/40 backdrop-blur-sm border border-white/5 shadow-2xl"
+                  className="relative z-10 p-6 rounded-2xl bg-white/40 dark:bg-slate-950/40 backdrop-blur-sm border border-slate-200/20 dark:border-white/5 shadow-2xl"
                 >
                   {project.icon}
                 </motion.div>
@@ -79,26 +79,26 @@ export default function Projects() {
 
               <div className="p-6 md:p-8 flex-1 flex flex-col items-center text-center md:items-start md:text-left">
                 <div className="flex justify-between items-start w-full mb-4">
-                  <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-orange-400 transition-colors">
+                  <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white group-hover:text-orange-500 dark:group-hover:text-orange-400 transition-colors">
                     {project.title}
                   </h3>
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noreferrer"
-                    className="text-slate-500 hover:text-white transition-colors"
+                    className="text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors"
                   >
                     <Github size={20} />
                   </a>
                 </div>
 
-                <p className="text-slate-400 mb-6 leading-relaxed flex-1 text-sm md:text-base">
+                <p className="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed flex-1 text-sm md:text-base">
                   {project.description}
                 </p>
 
                 <div className="flex flex-wrap justify-center md:justify-start gap-1.5 md:gap-2 mb-8">
                   {project.tech.map((tech) => (
-                    <span key={tech} className="px-2.5 py-1 bg-slate-800/50 text-slate-400 text-[9px] md:text-[10px] uppercase tracking-wider font-semibold rounded-md border border-slate-700/30">
+                    <span key={tech} className="px-2.5 py-1 bg-slate-200/50 dark:bg-slate-800/50 text-slate-600 dark:text-slate-400 text-[9px] md:text-[10px] uppercase tracking-wider font-semibold rounded-md border border-slate-300/50 dark:border-slate-700/30">
                       {tech}
                     </span>
                   ))}

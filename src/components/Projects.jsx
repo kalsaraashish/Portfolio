@@ -11,7 +11,7 @@ const Github = ({ className }) => (
 const projects = [
   {
     title: "Event-Management-System",
-    description: "A web-based system for managing college events where students can register and admins can create and manage events. Built with ASP.NET Core and React for a smooth and user-friendly experience.",
+    description: "A web-based college event management system where students can register for events, organizers can create and manage events, and admins oversee the entire system. Built using ASP.NET Core and React for a smooth and user-friendly experience.",
     tech: ["React", "ASP.NET Core Web API", "C#", "Tailwind CSS"],
     github: "https://github.com/kalsaraashish/College-Event-Management-System",
     bgColor: "from-blue-500/20 to-blue-500/5",

@@ -22,12 +22,18 @@ const projects = [
     ],
   },
   {
-    title: "Expense-Tracker",
-    description: "A smart expense tracker in progress.",
-    tech: ["ASP.NET Core", "C#", "Tailwind CSS"],
-    github: "https://github.com/kalsaraashish/Expense-Tracker",
+    title: "AllEdit Desktop App",
+    description: "Built an all-in-one file conversion and editing desktop application using .NET 8, WPF, and C#. The app supports PDF, Word, Excel, PowerPoint, and image files, allowing users to edit, convert, merge, split, and download files completely offline.",
+    tech: [".NET 8", "WPF", "C#", "LibreOffice (for file conversion)", "Ghostscript (PDF support)"],
+    github: "https://github.com/kalsaraashish/AllEdit-DesktopApp",
     bgColor: "from-blue-500/20 to-blue-500/5",
-    icon: <HandCoins className="text-blue-500" size={56} />,
+    icon: (
+      <img
+        src="/projects/pr2.png"
+        alt="AllEdit logo"
+        className="w-14 h-14 object-contain"
+      />
+    ),
     links: [
       { name: "Live Site", url: "https://spendwithme.vercel.app", icon: <ExternalLink size={14} /> }
     ],

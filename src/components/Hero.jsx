@@ -62,7 +62,7 @@ export default function Hero() {
             <a href="https://github.com/kalsaraashish" target="_blank" rel="noreferrer" className="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">
               <Github size={24} />
             </a>
-            <a href="https://www.linkedin.com/in/ashish-kalsara-4b3217227" target="_blank" rel="noreferrer" className="text-slate-500 dark:text-slate-400 hover:text-[#0A66C2] transition-colors">
+            <a href="https://www.linkedin.com/in/ashish-kalsara-dot-net/" target="_blank" rel="noreferrer" className="text-slate-500 dark:text-slate-400 hover:text-[#0A66C2] transition-colors">
               <Linkedin size={24} />
             </a>
             <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ashishkalsara@gmail.com" target="_blank" rel="noreferrer" className="text-slate-500 dark:text-slate-400 hover:text-blue-500 transition-colors">

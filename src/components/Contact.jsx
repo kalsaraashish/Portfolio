@@ -56,7 +56,7 @@ export default function Contact() {
 
           {/* LinkedIn Card */}
           <motion.a
-            href="https://www.linkedin.com/in/ashish-kalsara-4b3217227"
+            href="https://www.linkedin.com/in/ashish-kalsara-dot-net/"
             target="_blank"
             rel="noreferrer"
             initial={{ opacity: 0, x: 20 }}

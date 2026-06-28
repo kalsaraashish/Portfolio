@@ -1,118 +1,127 @@
 # 🌐 Ashish Kalsara Portfolio
 
-A modern, responsive personal portfolio website showcasing my skills, projects, education, certifications, and contact information. Built using React and Vite with a clean UI and optimized for performance and SEO.
+A modern and responsive personal portfolio website built with **React.js** and **Vite** to showcase my skills, projects, education, and professional journey.
 
-## 🔗 Live Demo
+## 🚀 Live Website
 
 **Portfolio:** https://ashishkalsara.vercel.app/
 
 ---
 
-## 👨‍💻 About Me
+# 👨‍💻 About
 
-Hi, I'm **Ashish Kalsara**, a passionate Full Stack Developer pursuing MCA with a strong interest in building scalable web applications and AI-powered solutions.
+Hi! I'm **Ashish Kalsara**, an MCA student and aspiring **Full Stack Developer** with a passion for building modern web applications and AI-powered solutions.
 
-### Areas of Interest
-
-* ASP.NET Core Web API
-* React.js
-* Python
-* Machine Learning
-* SQL Server & MySQL
-* REST API Development
+I enjoy developing responsive user interfaces, REST APIs, and machine learning applications while continuously learning new technologies.
 
 ---
 
-## 🚀 Features
+# ✨ Features
 
-* Responsive Design
-* Modern User Interface
-* Dark Theme
-* About Section
-* Skills Section
-* Projects Showcase
-* Education Timeline
-* Certifications
-* Contact Information
-* Resume Download
-* SEO Optimized
-* Fast Loading with Vite
-
----
-
-## 🛠 Tech Stack
-
-### Frontend
-
-* React.js
-* Vite
-* JavaScript (ES6+)
-* HTML5
-* CSS3
-
-### Deployment
-
-* Vercel
-
-### Tools
-
-* Git
-* GitHub
-* Visual Studio Code
+- Responsive Design
+- Modern UI/UX
+- Dark Theme
+- Hero Section
+- About Me
+- Technical Skills
+- Projects Showcase
+- Education Timeline
+- Contact Form
+- SEO Optimized
+- Fast Performance using Vite
 
 ---
 
-## 📂 Project Structure
+# 🛠 Tech Stack
+
+## Frontend
+
+- React.js
+- Vite
+- JavaScript (ES6+)
+- HTML5
+- CSS3
+
+## Tools
+
+- Git
+- GitHub
+- Visual Studio Code
+
+## Deployment
+
+- Vercel
+
+---
+
+# 📁 Project Structure
 
 ```text
-Portfolio/
+kalsaraashish-portfolio/
 ├── public/
+│   ├── robots.txt
+│   ├── sitemap.xml
+│   └── site.webmanifest
+│
 ├── src/
-│   ├── assets/
 │   ├── components/
-│   ├── pages/
+│   │   ├── Navbar.jsx
+│   │   ├── Hero.jsx
+│   │   ├── About.jsx
+│   │   ├── Skills.jsx
+│   │   ├── Projects.jsx
+│   │   ├── Education.jsx
+│   │   ├── Contact.jsx
+│   │   └── Footer.jsx
+│   │
+│   ├── context/
+│   │   └── ThemeContext.jsx
+│   │
 │   ├── App.jsx
-│   └── main.jsx
+│   ├── main.jsx
+│   └── index.css
+│
 ├── index.html
 ├── package.json
+├── vite.config.js
 └── README.md
 ```
 
 ---
 
-## ⚙ Installation
+# 📦 Installation
 
-Clone the repository:
-
-```bash
-git clone https://github.com/kalsaraashish/Portfolio.git
-```
-
-Go to the project folder:
+Clone the repository
 
 ```bash
-cd Portfolio
+git clone https://github.com/kalsaraashish/kalsaraashish-portfolio.git
 ```
 
-Install dependencies:
+Go to project folder
+
+```bash
+cd kalsaraashish-portfolio
+```
+
+Install dependencies
 
 ```bash
 npm install
 ```
 
-Run the development server:
+Run development server
 
 ```bash
 npm run dev
 ```
 
-Build for production:
+Build project
 
 ```bash
 npm run build
 ```
 
-Preview production build:
+Preview production build
 
 ```bash
 npm run preview
@@ -120,25 +129,70 @@ npm run preview
 
 ---
 
-## 📸 Portfolio Sections
+# 📂 Portfolio Sections
 
-* Home
-* About
-* Skills
-* Projects
-* Education
-* Certifications
-* Contact
+- 🏠 Home
+- 👨 About
+- 💻 Skills
+- 🚀 Projects
+- 🎓 Education
+- 📞 Contact
+- 📄 Footer
 
 ---
 
-## 📫 Contact
+# 🚀 Featured Projects
+
+### 🎯 Face Recognition Attendance System
+
+AI-powered attendance management system using Face Recognition and Machine Learning.
+
+**Technology**
+
+- Python
+- FastAPI
+- React
+- MySQL
+- OpenCV
+- Face Recognition
+
+---
+
+### 📄 AllEdit Desktop Application
+
+Offline document and image conversion desktop software.
+
+**Technology**
+
+- C#
+- WPF
+- .NET 8
+- PDFSharp
+- Magick.NET
+- Ghostscript
+
+---
+
+### 🎉 College Event Management System
+
+Full Stack Event Management System for colleges.
+
+**Technology**
+
+- ASP.NET Core Web API
+- React.js
+- SQL Server
+- JWT Authentication
+
+---
+
+# 📫 Contact
 
 **Ashish Kalsara**
 
-📧 Email: [your-email@example.com](mailto:your-email@example.com)
+📧 Email: [ashishkalsara@gmail.com](mailto:[EMAIL_ADDRESS])
 
-💼 LinkedIn: https://linkedin.com/in/your-linkedin
+💼 LinkedIn: https://www.linkedin.com/in/ashish-kalsara-dot-net
 
 🐙 GitHub: https://github.com/kalsaraashish
 
@@ -146,16 +200,10 @@ npm run preview
 
 ---
 
-## ⭐ If you like this project
+# ⭐ Support
 
-Give this repository a ⭐ on GitHub.
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License.
+If you like this project, consider giving it a ⭐ on GitHub.
 
 ---
 
-Made with ❤️ by **Ashish Kalsara**
+## Made with ❤️ by Ashish Kalsara

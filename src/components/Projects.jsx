@@ -1,48 +1,79 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, User, Store, HandCoins, ChefHat, ArrowRight, GraduationCap } from 'lucide-react';
+import { ExternalLink, GraduationCap, Monitor, ArrowRight, CheckCircle2, Sparkles, Layers, ShieldCheck } from 'lucide-react';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from './ui/card';
+import { Badge } from './ui/badge';
+import { Button } from './ui/button';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from './ui/dialog';
 
-const Github = ({ className }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+const Github = ({ className, size = 18 }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
     <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.2c3-.3 6-1.5 6-6.5a5.5 5.5 0 0 0-1.5-3.8 5.5 5.5 0 0 0-.1-3.8s-1.2-.4-3.9 1.4a13.3 13.3 0 0 0-7 0C6.2 1.5 5 1.9 5 1.9a5.5 5.5 0 0 0-.1 3.8A5.5 5.5 0 0 0 3.4 9.5c0 5 3 6.2 6 6.5a4.8 4.8 0 0 0-1 3.2v4"></path>
   </svg>
 );
 
-const projects = [
+const projectsData = [
   {
-    title: "Event-Management-System",
-    description: "A web-based college event management system where students can register for events, organizers can create and manage events, and admins oversee the entire system. Built using ASP.NET Core and React for a smooth and user-friendly experience.",
-    tech: ["React", "ASP.NET Core Web API", "C#", "Tailwind CSS"],
-    github: "https://github.com/kalsaraashish/College-Event-Management-System",
-    bgColor: "from-blue-500/20 to-blue-500/5",
-    icon: <GraduationCap className="text-blue-500" size={56} />,
-    links: [
-      { name: "User App", url: "https://mymealuser.vercel.app", icon: <User size={14} /> },
-      { name: "Vendor App", url: "https://mymealvendor.vercel.app", icon: <Store size={14} /> }
+    id: "event-management",
+    title: "College Event Management System",
+    subtitle: "Full Stack Web Application",
+    shortDescription: "A comprehensive web portal for college students, event organizers, and administrators to register, coordinate, and oversee academic & cultural events.",
+    fullDescription: "Built with ASP.NET Core Web API and React, this system streamlined college event registrations and scheduling. Features role-based authorization for Students, Organizers, and System Admins, real-time registration status, event feedback, and automated notifications.",
+    features: [
+      "Role-based Access Control (Admin, Organizer, Student)",
+      "Event creation, capacity management, and date scheduling",
+      "Seamless student registration & ticket pass generation",
+      "REST API backend written with ASP.NET Core & C#",
+      "Modern responsive UI created with React & Tailwind CSS"
     ],
+    tech: ["React.js", "ASP.NET Core Web API", "C#", "SQL Server", "Tailwind CSS"],
+    github: "https://github.com/kalsaraashish/College-Event-Management-System",
+    liveLinks: [
+      { name: "User App", url: "https://mymealuser.vercel.app" },
+      { name: "Vendor App", url: "https://mymealvendor.vercel.app" }
+    ],
+    icon: <GraduationCap className="text-blue-500" size={48} />,
+    color: "from-blue-600/20 to-indigo-600/10"
   },
   {
-    title: "AllEdit Desktop App",
-    description: "Built an all-in-one file conversion and editing desktop application using .NET 8, WPF, and C#. The app supports PDF, Word, Excel, PowerPoint, and image files, allowing users to edit, convert, merge, split, and download files completely offline.",
-    tech: [".NET 8", "WPF", "C#", "LibreOffice (for file conversion)", "Ghostscript (PDF support)"],
+    id: "alledit-desktop",
+    title: "AllEdit Desktop Application",
+    subtitle: "Offline File Processing & Conversion Tool",
+    shortDescription: "An all-in-one desktop utility built with .NET 8 WPF for offline editing, converting, merging, and splitting PDF, Word, Excel, PowerPoint, and image files.",
+    fullDescription: "AllEdit is a high-performance Windows desktop application created with .NET 8 WPF and C#. Designed to operate 100% offline without uploading sensitive files to cloud servers. Integrates LibreOffice and Ghostscript engines to execute document conversions locally with zero data privacy compromise.",
+    features: [
+      "Offline conversion across PDF, DOCX, XLSX, PPTX, and Images",
+      "Merge & split multi-page PDF documents effortlessly",
+      "Custom WPF desktop user interface with dark/light themes",
+      "Integrated LibreOffice & Ghostscript backend workers",
+      "Zero network data transfer ensuring complete file security"
+    ],
+    tech: [".NET 8", "WPF", "C#", "LibreOffice Engine", "Ghostscript"],
     github: "https://github.com/kalsaraashish/AllEdit-DesktopApp",
-    bgColor: "from-blue-500/20 to-blue-500/5",
+    liveLinks: [
+      { name: "Live Web Site", url: "https://spendwithme.vercel.app" }
+    ],
     icon: (
       <img
         src="/projects/pr2.png"
-        alt="AllEdit logo"
+        alt="AllEdit Logo"
         className="w-14 h-14 object-contain"
+        onError={(e) => {
+          e.target.onerror = null;
+          e.target.style.display = 'none';
+        }}
       />
     ),
-    links: [
-      { name: "Live Site", url: "https://spendwithme.vercel.app", icon: <ExternalLink size={14} /> }
-    ],
+    fallbackIcon: <Monitor className="text-indigo-500" size={48} />,
+    color: "from-indigo-600/20 to-purple-600/10"
   }
 ];
 
 export default function Projects() {
+  const [selectedProject, setSelectedProject] = useState(null);
+
   return (
-    <section id="projects" className="py-24 relative">
+    <section id="projects" className="py-28 relative bg-slate-100/50 dark:bg-slate-900/20">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -51,84 +82,160 @@ export default function Projects() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
-            Featured <span className="text-blue-500">Projects</span>
+          <Badge variant="glow" className="mb-3">
+            <Sparkles size={12} className="mr-1" /> Featured Work
+          </Badge>
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white mb-4">
+            Recent <span className="text-gradient">Projects</span>
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-blue-400 mx-auto rounded-full" />
+          <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-indigo-500 mx-auto rounded-full mb-6" />
+          <p className="text-slate-600 dark:text-slate-400 text-base sm:text-lg max-w-xl mx-auto">
+            Applications, desktop utilities, and REST APIs built with React and .NET Core
+          </p>
         </motion.div>
 
+        {/* Projects Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {projects.map((project, idx) => (
+          {projectsData.map((project, idx) => (
             <motion.div
-              key={project.title}
+              key={project.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="glass-panel overflow-hidden border-slate-200/50 dark:border-slate-800/50 hover:border-blue-500/30 transition-all duration-300 flex flex-col"
+              transition={{ duration: 0.5, delay: idx * 0.15 }}
             >
-              {/* Simple Placeholder Visual */}
-              <div className={`aspect-video bg-gradient-to-br ${project.bgColor} flex items-center justify-center border-b border-slate-200/50 dark:border-slate-800/50 relative overflow-hidden group`}>
-                <div className="absolute inset-0 bg-slate-50/20 dark:bg-slate-950/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <motion.div
-                  whileHover={{ scale: 1.15, rotate: -5 }}
-                  transition={{ type: 'spring', stiffness: 300 }}
-                  className="relative z-10 p-6 rounded-2xl bg-white/40 dark:bg-slate-950/40 backdrop-blur-sm border border-slate-200/20 dark:border-white/5 shadow-2xl"
-                >
-                  {project.icon}
-                </motion.div>
+              <Card className="h-full flex flex-col justify-between overflow-hidden border-slate-200/80 dark:border-slate-800/80 hover:border-blue-500/50 group transition-all duration-300 hover:shadow-xl dark:hover:shadow-blue-500/10">
+                {/* Visual Header Banner */}
+                <div className={`h-48 bg-gradient-to-br ${project.color} flex items-center justify-center relative overflow-hidden border-b border-slate-200/80 dark:border-slate-800/80`}>
+                  <div className="absolute inset-0 bg-grid-pattern opacity-40" />
 
-                {/* Secondary decorative elements */}
-                <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-white/5 rounded-full blur-3xl group-hover:bg-white/10 transition-colors" />
-                <div className="absolute -top-10 -left-10 w-40 h-40 bg-white/5 rounded-full blur-3xl group-hover:bg-white/10 transition-colors" />
-              </div>
-
-              <div className="p-6 md:p-8 flex-1 flex flex-col items-center text-center md:items-start md:text-left">
-                <div className="flex justify-between items-start w-full mb-4">
-                  <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors">
-                    {project.title}
-                  </h3>
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors"
+                  <motion.div
+                    whileHover={{ scale: 1.1, rotate: -3 }}
+                    transition={{ type: 'spring', stiffness: 300 }}
+                    className="p-5 rounded-2xl bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border border-white/20 dark:border-slate-800 shadow-xl relative z-10"
                   >
-                    <Github size={20} />
-                  </a>
+                    {project.icon || project.fallbackIcon}
+                  </motion.div>
+
+                  <Badge variant="secondary" className="absolute top-4 right-4 text-[10px] font-mono backdrop-blur-md">
+                    {project.subtitle}
+                  </Badge>
                 </div>
 
-                <p className="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed flex-1 text-sm md:text-base">
-                  {project.description}
-                </p>
-
-                <div className="flex flex-wrap justify-center md:justify-start gap-1.5 md:gap-2 mb-8">
-                  {project.tech.map((tech) => (
-                    <span key={tech} className="px-2.5 py-1 bg-slate-200/50 dark:bg-slate-800/50 text-slate-600 dark:text-slate-400 text-[9px] md:text-[10px] uppercase tracking-wider font-semibold rounded-md border border-slate-300/50 dark:border-slate-700/30">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-
-                {/* <div className="flex flex-wrap items-center justify-center md:justify-start gap-5 pt-4 border-t border-slate-800/50 w-full">
-                  {project.links.map((link) => (
+                {/* Content */}
+                <CardHeader className="p-6 pb-3">
+                  <div className="flex items-center justify-between gap-4 mb-2">
+                    <CardTitle className="text-xl font-bold group-hover:text-blue-500 transition-colors">
+                      {project.title}
+                    </CardTitle>
                     <a
-                      key={link.name}
-                      href={link.url}
+                      href={project.github}
                       target="_blank"
                       rel="noreferrer"
-                      className="flex items-center gap-1.5 text-[10px] md:text-xs font-bold text-blue-500 hover:text-blue-400 transition-colors uppercase tracking-widest group/link"
+                      className="p-2 rounded-xl text-slate-500 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                      title="View GitHub Repository"
                     >
-                      {link.icon} {link.name}
-                      <ArrowRight size={10} className="opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all" />
+                      <Github size={20} />
                     </a>
-                  ))}
-                </div> */}
-              </div>
+                  </div>
+                  <CardDescription className="text-slate-600 dark:text-slate-400 line-clamp-3">
+                    {project.shortDescription}
+                  </CardDescription>
+                </CardHeader>
+
+                <CardContent className="p-6 pt-0 flex-1">
+                  <div className="flex flex-wrap gap-1.5 mt-3">
+                    {project.tech.map((t) => (
+                      <Badge key={t} variant="outline" className="text-[10px] uppercase font-mono tracking-wider">
+                        {t}
+                      </Badge>
+                    ))}
+                  </div>
+                </CardContent>
+
+                <CardFooter className="p-6 pt-0 border-t border-slate-100 dark:border-slate-800/50 mt-4 flex items-center justify-between gap-4">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => setSelectedProject(project)}
+                    className="text-xs font-semibold gap-1 text-blue-600 dark:text-blue-400 hover:bg-blue-500/10"
+                  >
+                    View Details & Features
+                    <ArrowRight size={14} />
+                  </Button>
+
+                  <a href={project.github} target="_blank" rel="noreferrer">
+                    <Button variant="outline" size="sm" className="text-xs gap-1.5">
+                      <Github size={14} /> Code
+                    </Button>
+                  </a>
+                </CardFooter>
+              </Card>
             </motion.div>
           ))}
         </div>
       </div>
+
+      {/* Project Detail Shadcn Dialog Modal */}
+      {selectedProject && (
+        <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
+          <DialogContent className="max-w-2xl max-h-[85vh] overflow-y-auto">
+            <DialogHeader>
+              <div className="flex items-center gap-2 mb-2">
+                <Badge variant="glow">{selectedProject.subtitle}</Badge>
+              </div>
+              <DialogTitle className="text-2xl font-bold text-slate-900 dark:text-white">
+                {selectedProject.title}
+              </DialogTitle>
+              <DialogDescription className="text-slate-600 dark:text-slate-400 text-sm mt-2 leading-relaxed">
+                {selectedProject.fullDescription}
+              </DialogDescription>
+            </DialogHeader>
+
+            {/* Key Features */}
+            <div className="space-y-4 my-4">
+              <h4 className="text-sm font-bold text-slate-900 dark:text-white uppercase font-mono tracking-wider flex items-center gap-2">
+                <Layers size={16} className="text-blue-500" /> Key Features & Capabilities
+              </h4>
+              <div className="space-y-2.5">
+                {selectedProject.features.map((feat, i) => (
+                  <div key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+                    <CheckCircle2 size={16} className="text-emerald-500 shrink-0 mt-0.5" />
+                    <span>{feat}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Tech Stack */}
+            <div className="space-y-2 my-4">
+              <h4 className="text-xs font-bold text-slate-500 uppercase font-mono">Technologies Used</h4>
+              <div className="flex flex-wrap gap-2">
+                {selectedProject.tech.map((t) => (
+                  <Badge key={t} variant="secondary" className="text-xs font-mono">
+                    {t}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+
+            <DialogFooter className="gap-3">
+              <a href={selectedProject.github} target="_blank" rel="noreferrer" className="w-full sm:w-auto">
+                <Button variant="outline" className="w-full gap-2">
+                  <Github size={16} /> GitHub Source Code
+                </Button>
+              </a>
+              {selectedProject.liveLinks && selectedProject.liveLinks.map((link) => (
+                <a key={link.name} href={link.url} target="_blank" rel="noreferrer" className="w-full sm:w-auto">
+                  <Button variant="default" className="w-full gap-2">
+                    <ExternalLink size={16} /> {link.name}
+                  </Button>
+                </a>
+              ))}
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
+      )}
     </section>
   );
 }

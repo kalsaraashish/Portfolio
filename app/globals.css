@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #F5EFEB; /* Beige */
+    --foreground: #2F4156; /* Navy */
+    
+    --card: #FFFFFF;
+    --card-foreground: #2F4156;
+    
+    --popover: #FFFFFF;
+    --popover-foreground: #2F4156;
+    
+    --primary: #567C8D; /* Teal */
+    --primary-foreground: #FFFFFF;
+    
+    --secondary: #C8D9E6; /* Sky Blue */
+    --secondary-foreground: #2F4156;
+    
+    --muted: #E2ECF4;
+    --muted-foreground: #567C8D;
+    
+    --accent: #567C8D; /* Teal */
+    --accent-foreground: #FFFFFF;
+    
+    --destructive: #EF4444;
+    --destructive-foreground: #FFFFFF;
+    
+    --border: rgba(86, 124, 141, 0.25);
+    --input: rgba(86, 124, 141, 0.2);
+    --ring: #567C8D;
+    
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: #1B2634; /* Deep Navy base for dark mode */
+    --foreground: #F5EFEB; /* Beige/White text */
+    
+    --card: #2F4156; /* Navy card surface */
+    --card-foreground: #FFFFFF;
+    
+    --popover: #2F4156;
+    --popover-foreground: #FFFFFF;
+    
+    --primary: #567C8D; /* Teal */
+    --primary-foreground: #FFFFFF;
+    
+    --secondary: rgba(200, 217, 230, 0.15); /* Low opacity Sky Blue */
+    --secondary-foreground: #C8D9E6;
+    
+    --muted: rgba(47, 65, 86, 0.6);
+    --muted-foreground: #C8D9E6;
+    
+    --accent: #567C8D; /* Teal */
+    --accent-foreground: #FFFFFF;
+    
+    --destructive: #EF4444;
+    --destructive-foreground: #FFFFFF;
+    
+    --border: rgba(200, 217, 230, 0.18);
+    --input: rgba(200, 217, 230, 0.18);
+    --ring: #567C8D;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-teal/30 selection:text-teal;
+    overflow-x: hidden;
+  }
+}
+
+@layer utilities {
+  .glass-header {
+    @apply bg-beige/80 dark:bg-navy-dark/85 backdrop-blur-md border-b border-teal/20 dark:border-sky/15;
+  }
+  .glass-card {
+    @apply bg-white/90 dark:bg-navy/70 backdrop-blur-xl border border-sky/40 dark:border-sky/15 shadow-sm hover:shadow-md transition-all duration-300;
+  }
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-navy via-teal to-teal-light dark:from-sky dark:via-sky-light dark:to-teal-light;
+  }
+  .bg-grid-pattern {
+    background-size: 32px 32px;
+    background-image: linear-gradient(to right, rgba(86, 124, 141, 0.06) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(86, 124, 141, 0.06) 1px, transparent 1px);
+  }
+  .dark .bg-grid-pattern {
+    background-image: linear-gradient(to right, rgba(200, 217, 230, 0.04) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(200, 217, 230, 0.04) 1px, transparent 1px);
+  }
+}

@@ -82,7 +82,7 @@ export default function Navbar({ onOpenSearch }: NavbarProps) {
             </nav>
 
             {/* Quick Command Search Button */}
-            <button
+            {/* <button
               onClick={onOpenSearch}
               className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-sky/30 dark:bg-navy/80 border border-sky/50 dark:border-sky/15 text-navy/70 dark:text-sky/80 text-xs hover:border-teal/50 transition-all cursor-pointer shadow-sm"
               aria-label="Open Command Search"
@@ -92,7 +92,7 @@ export default function Navbar({ onOpenSearch }: NavbarProps) {
               <kbd className="hidden sm:inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded bg-white/80 dark:bg-navy-dark font-mono text-[10px] text-navy/70 dark:text-sky/70 border border-sky/40 dark:border-sky/20">
                 <Command size={10} /> K
               </kbd>
-            </button>
+            </button> */}
 
             {/* Theme Toggle Button */}
             {mounted && (

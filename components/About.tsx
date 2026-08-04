@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Code2, Laptop, Database, ArrowUpRight, Sparkles, BrainCircuit } from "lucide-react";
+import { Code2, Laptop, Database, ArrowUpRight, Sparkles } from "lucide-react";
 import { Card } from "./ui/card";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
@@ -10,22 +10,17 @@ import { Button } from "./ui/button";
 export default function About() {
   const highlights = [
     {
-      icon: <Laptop className="text-teal" size={24} />,
+      icon: <Laptop className="text-teal" size={26} />,
       title: "Frontend Development",
       description: "Crafting modern, responsive, and pixel-perfect UIs with React.js, JavaScript, and Tailwind CSS."
     },
     {
-      icon: <Code2 className="text-teal" size={24} />,
+      icon: <Code2 className="text-teal" size={26} />,
       title: "Backend Engineering",
       description: "Developing secure, high-performance REST APIs and microservices using C# and ASP.NET Core."
     },
     {
-      icon: <BrainCircuit className="text-teal" size={24} />,
-      title: "Python & Machine Learning",
-      description: "Building intelligent data models, data analysis scripts, and machine learning solutions using Python."
-    },
-    {
-      icon: <Database className="text-teal" size={24} />,
+      icon: <Database className="text-teal" size={26} />,
       title: "Database Management",
       description: "Designing and managing relational databases with SQL Server for optimized data querying and persistence."
     }
@@ -77,7 +72,7 @@ export default function About() {
                 </p>
 
                 <p className="text-navy/70 dark:text-sky/80 text-base sm:text-lg leading-relaxed mb-8">
-                  Additionally, I work with <strong className="text-navy dark:text-white">Python</strong>, <strong className="text-navy dark:text-white">Machine Learning</strong> concepts, and <strong className="text-navy dark:text-white">SQL Server</strong> databases. Whether it's designing a seamless frontend or constructing robust backend services, I love turning ideas into real-world applications.
+                  I am a quick learner with a strong foundation in computer science and a drive to continuously improve my skills. Whether it's designing a seamless frontend or building a strong backend with SQL Server, I love turning ideas into real-world applications.
                 </p>
               </div>
 
@@ -118,12 +113,12 @@ export default function About() {
             className="lg:col-span-6 flex flex-col gap-4 justify-between"
           >
             {highlights.map((item, idx) => (
-              <Card key={idx} className="p-5 flex items-start gap-4 hover:border-teal/50 hover:bg-white dark:hover:bg-navy/90 transition-all duration-300 group">
-                <div className="p-3 rounded-xl bg-teal/10 dark:bg-navy-light/60 shrink-0 group-hover:scale-105 transition-transform duration-300">
+              <Card key={idx} className="flex-1 p-7 flex items-center gap-5 border-sky/40 dark:border-sky/15 hover:border-teal/50 hover:bg-white dark:hover:bg-navy/90 transition-all duration-300 group shadow-sm">
+                <div className="p-3.5 rounded-2xl bg-teal/10 dark:bg-navy-light/60 shrink-0 group-hover:scale-105 transition-transform duration-300">
                   {item.icon}
                 </div>
                 <div>
-                  <h4 className="text-base font-bold font-serif text-navy dark:text-white mb-1 group-hover:text-teal transition-colors">
+                  <h4 className="text-lg font-bold font-serif text-navy dark:text-white mb-1.5 group-hover:text-teal transition-colors">
                     {item.title}
                   </h4>
                   <p className="text-navy/70 dark:text-sky/80 text-sm leading-relaxed">

@@ -56,24 +56,24 @@ const skills = [
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg",
     level: "Proficient"
   },
-  {
-    name: "Python",
-    category: "ml",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
-    level: "Proficient"
-  },
-  {
-    name: "Machine Learning",
-    category: "ml",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg",
-    level: "Specialized"
-  },
-  {
-    name: "WPF (.NET 8)",
-    category: "backend",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg",
-    level: "Proficient"
-  },
+  // {
+  //   name: "Python",
+  //   category: "ml",
+  //   logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+  //   level: "Proficient"
+  // },
+  // {
+  //   name: "Machine Learning",
+  //   category: "ml",
+  //   logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg",
+  //   level: "Specialized"
+  // },
+  // {
+  //   name: "WPF (.NET 8)",
+  //   category: "backend",
+  //   logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg",
+  //   level: "Proficient"
+  // },
   {
     name: "Git",
     category: "tools",
@@ -158,9 +158,9 @@ export default function Skills() {
               <TabsTrigger value="backend" className="flex items-center gap-1 font-semibold text-xs sm:text-sm">
                 <Database size={14} /> Backend
               </TabsTrigger>
-              <TabsTrigger value="ml" className="flex items-center gap-1 font-semibold text-xs sm:text-sm">
+              {/* <TabsTrigger value="ml" className="flex items-center gap-1 font-semibold text-xs sm:text-sm">
                 <BrainCircuit size={14} /> ML & Python
-              </TabsTrigger>
+              </TabsTrigger> */}
               <TabsTrigger value="tools" className="flex items-center gap-1 font-semibold text-xs sm:text-sm">
                 <Wrench size={14} /> Tools
               </TabsTrigger>

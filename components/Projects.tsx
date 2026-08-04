@@ -78,22 +78,22 @@ const projectsData: Project[] = [
       />
     )
   },
-  {
-    id: "ml-predictive-model",
-    title: "Machine Learning & Python Analytics",
-    subtitle: "AI & Predictive Model API",
-    shortDescription: "Intelligent data analysis and machine learning scripts built with Python, scikit-learn, and REST APIs for predictive data processing.",
-    fullDescription: "Developed machine learning pipelines for automated feature extraction, model training, and API serving. Utilizes Python data science libraries to process datasets and provide predictive insights via REST web endpoints.",
-    features: [
-      "Data preprocessing, cleaning, and feature engineering",
-      "Supervised & unsupervised machine learning model training",
-      "Python REST API deployment for model inference",
-      "Statistical metrics evaluation & data visualization"
-    ],
-    tech: ["Python", "Machine Learning", "Pandas", "Scikit-Learn", "REST API"],
-    github: "https://github.com/kalsaraashish",
-    icon: <BrainCircuit className="text-teal" size={48} />
-  }
+  // {
+  //   id: "ml-predictive-model",
+  //   title: "Machine Learning & Python Analytics",
+  //   subtitle: "AI & Predictive Model API",
+  //   shortDescription: "Intelligent data analysis and machine learning scripts built with Python, scikit-learn, and REST APIs for predictive data processing.",
+  //   fullDescription: "Developed machine learning pipelines for automated feature extraction, model training, and API serving. Utilizes Python data science libraries to process datasets and provide predictive insights via REST web endpoints.",
+  //   features: [
+  //     "Data preprocessing, cleaning, and feature engineering",
+  //     "Supervised & unsupervised machine learning model training",
+  //     "Python REST API deployment for model inference",
+  //     "Statistical metrics evaluation & data visualization"
+  //   ],
+  //   tech: ["Python", "Machine Learning", "Pandas", "Scikit-Learn", "REST API"],
+  //   github: "https://github.com/kalsaraashish",
+  //   icon: <BrainCircuit className="text-teal" size={48} />
+  // }
 ];
 
 export default function Projects() {
@@ -122,7 +122,7 @@ export default function Projects() {
         </motion.div>
 
         {/* Projects Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto justify-center">
           {projectsData.map((project, idx) => (
             <motion.div
               key={project.id}
@@ -201,6 +201,28 @@ export default function Projects() {
             </motion.div>
           ))}
         </div>
+
+        {/* View All Projects Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="mt-12 text-center"
+        >
+          <a
+            href="https://github.com/kalsaraashish?tab=repositories"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-block"
+          >
+            <Button variant="glow" size="lg" className="gap-2.5 font-semibold">
+              <Github size={20} />
+              View All Projects on GitHub
+              <ArrowRight size={18} />
+            </Button>
+          </a>
+        </motion.div>
       </div>
 
       {/* Project Detail Shadcn Dialog Modal */}
@@ -252,13 +274,13 @@ export default function Projects() {
                   <Github size={16} /> GitHub Source Code
                 </Button>
               </a>
-              {selectedProject.liveLinks && selectedProject.liveLinks.map((link) => (
+              {/* {selectedProject.liveLinks && selectedProject.liveLinks.map((link) => (
                 <a key={link.name} href={link.url} target="_blank" rel="noreferrer" className="w-full sm:w-auto">
                   <Button variant="default" className="w-full gap-2 font-semibold">
                     <ExternalLink size={16} /> {link.name}
                   </Button>
                 </a>
-              ))}
+              ))} */}
             </DialogFooter>
           </DialogContent>
         </Dialog>

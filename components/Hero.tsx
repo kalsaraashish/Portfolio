@@ -170,7 +170,7 @@ export default function Hero() {
                 <div className="pl-4">{'{'}</div>
                 <div className="pl-8 text-sky/80"><span className="text-teal-light">public string</span> Role = <span className="text-emerald-300">"Full Stack Developer"</span>;</div>
                 <div className="pl-8 text-sky/80"><span className="text-teal-light">public string[]</span> Skills = {'{'}</div>
-                <div className="pl-12 text-emerald-300">"ASP.NET Core", "React.js", "Python", "ML", "SQL Server"</div>
+                <div className="pl-12 text-emerald-300">"ASP.NET Core", "React.js", "SQL Server"</div>
                 <div className="pl-8">{'}'};</div>
                 <div className="pl-8 pt-2"><span className="text-teal-light">public bool</span> <span className="text-sky">IsAvailable</span>() {'=>'} <span className="text-amber-400">true</span>;</div>
                 <div className="pl-4">{'}'}</div>
@@ -197,7 +197,7 @@ export default function Hero() {
             </div>
             <div>
               <div className="text-xs font-bold font-serif text-navy dark:text-white">Clean Code & Architecture</div>
-              <div className="text-[10px] text-navy/60 dark:text-sky/70">ASP.NET Core • React • Python</div>
+              <div className="text-[10px] text-navy/60 dark:text-sky/70">ASP.NET Core • React.js • SQL Server</div>
             </div>
           </motion.div>
         </motion.div>

@@ -11,12 +11,14 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import CommandSearch from "@/components/CommandSearch";
 import { ToastProvider } from "@/components/ui/toast";
+import CustomCursor from "@/components/CustomCursor";
 
 export default function Home() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   return (
     <ToastProvider>
+      <CustomCursor />
       <div className="min-h-screen w-full overflow-x-hidden">
         <Navbar onOpenSearch={() => setIsSearchOpen(true)} />
         <main>

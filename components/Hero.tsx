@@ -1,10 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { ArrowRight, Download, Mail, Copy, Check, Terminal, Sparkles, BrainCircuit } from "lucide-react";
+import React, { useState, useRef, useEffect } from "react";
+import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
+import { ArrowRight, Download, Mail, Copy, Check, Terminal, BrainCircuit } from "lucide-react";
 import { Button } from "./ui/button";
-import { Badge } from "./ui/badge";
 import { useToast } from "./ui/toast";
 
 const Github = ({ className, size = 20 }: { className?: string; size?: number }) => (
@@ -21,6 +20,89 @@ const Linkedin = ({ className, size = 20 }: { className?: string; size?: number 
   </svg>
 );
 
+// Floating Particles Background Component
+const ParticleBackground = () => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    let animationFrameId: number;
+    let width = (canvas.width = canvas.offsetWidth);
+    let height = (canvas.height = canvas.offsetHeight);
+
+    const particles: Array<{
+      x: number;
+      y: number;
+      size: number;
+      speedX: number;
+      speedY: number;
+      opacity: number;
+    }> = [];
+
+    const createParticle = (xVal?: number, yVal?: number) => {
+      return {
+        x: xVal ?? Math.random() * width,
+        y: yVal ?? Math.random() * height,
+        size: Math.random() * 2 + 0.5,
+        speedX: (Math.random() - 0.5) * 0.15,
+        speedY: -Math.random() * 0.3 - 0.05,
+        opacity: Math.random() * 0.4 + 0.1,
+      };
+    };
+
+    // Initialize particles
+    for (let i = 0; i < 35; i++) {
+      particles.push(createParticle());
+    }
+
+    const handleResize = () => {
+      if (!canvas) return;
+      width = canvas.width = canvas.offsetWidth;
+      height = canvas.height = canvas.offsetHeight;
+    };
+    window.addEventListener("resize", handleResize);
+
+    const animate = () => {
+      ctx.clearRect(0, 0, width, height);
+
+      particles.forEach((p, idx) => {
+        p.y += p.speedY;
+        p.x += p.speedX;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(86, 124, 141, ${p.opacity})`;
+        ctx.fill();
+
+        // Reset if particle goes off screen
+        if (p.y < 0 || p.x < 0 || p.x > width) {
+          particles[idx] = createParticle(Math.random() * width, height + 10);
+        }
+      });
+
+      animationFrameId = requestAnimationFrame(animate);
+    };
+
+    animate();
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className="absolute inset-0 w-full h-full -z-10 pointer-events-none opacity-40 dark:opacity-30"
+    />
+  );
+};
+
 export default function Hero() {
   const [copied, setCopied] = useState(false);
   const { toast } = useToast();
@@ -35,47 +117,134 @@ export default function Hero() {
     setTimeout(() => setCopied(false), 2000);
   };
 
+  // Motion values for the 3D Tilt effect
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  // Spring values for ultra smooth rotations
+  const rotateXSpring = useSpring(useTransform(mouseY, [-200, 200], [10, -10]), { damping: 25, stiffness: 200 });
+  const rotateYSpring = useSpring(useTransform(mouseX, [-200, 200], [-10, 10]), { damping: 25, stiffness: 200 });
+
+  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
+    const rect = event.currentTarget.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const localX = event.clientX - rect.left - width / 2;
+    const localY = event.clientY - rect.top - height / 2;
+    mouseX.set(localX);
+    mouseY.set(localY);
+  };
+
+  const handleMouseLeave = () => {
+    mouseX.set(0);
+    mouseY.set(0);
+  };
+
+  // Stagger Container Variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.12,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  // Children entry variants
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { type: "spring", stiffness: 100, damping: 15 },
+    },
+  };
+
   return (
     <section id="home" className="min-h-screen flex items-center justify-center pt-28 pb-16 relative overflow-hidden bg-grid-pattern">
+      {/* Particle Background */}
+      <ParticleBackground />
+
       {/* Background Decorative Blur Blobs */}
-      <div className="absolute top-1/4 left-1/6 w-[450px] h-[450px] bg-teal/15 dark:bg-teal/20 rounded-full blur-[140px] -z-10 pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/6 w-[400px] h-[400px] bg-sky/30 dark:bg-navy/40 rounded-full blur-[140px] -z-10 pointer-events-none" />
+      <motion.div
+        animate={{
+          scale: [1, 1.1, 1],
+          x: [0, 15, 0],
+          y: [0, -15, 0],
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute top-1/4 left-1/6 w-[450px] h-[450px] bg-teal/15 dark:bg-teal/20 rounded-full blur-[140px] -z-10 pointer-events-none"
+      />
+      <motion.div
+        animate={{
+          scale: [1, 1.15, 1],
+          x: [0, -20, 0],
+          y: [0, 20, 0],
+        }}
+        transition={{
+          duration: 12,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute bottom-1/4 right-1/6 w-[400px] h-[400px] bg-sky/30 dark:bg-navy/40 rounded-full blur-[140px] -z-10 pointer-events-none"
+      />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
         {/* Left Column */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
           className="lg:col-span-7 flex flex-col items-center text-center lg:items-start lg:text-left gap-6"
         >
           {/* Status Badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-teal/30 bg-teal/10 text-teal dark:text-sky-light text-xs font-semibold backdrop-blur-md">
+          <motion.div
+            variants={itemVariants}
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-teal/30 bg-teal/10 text-teal dark:text-sky-light text-xs font-semibold backdrop-blur-md"
+          >
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-teal"></span>
             </span>
-            <span>Available for Work & Full Stack Development</span>
-          </div>
+            <span>Available for Work &amp; Full Stack Development</span>
+          </motion.div>
 
           {/* Heading */}
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold font-serif tracking-tight text-navy dark:text-white leading-[1.1]">
+          <motion.h1
+            variants={itemVariants}
+            className="text-4xl sm:text-6xl lg:text-7xl font-bold font-serif tracking-tight text-navy dark:text-white leading-[1.1]"
+          >
             Hi, I'm <br />
             <span className="text-gradient">Ashish Kalsara</span>
-          </h1>
+          </motion.h1>
 
           {/* Subtitle */}
-          <h2 className="text-xl sm:text-2xl font-medium text-navy/80 dark:text-sky/90 flex flex-wrap items-center justify-center lg:justify-start gap-2">
-            Full Stack Developer <span className="text-teal font-mono text-base font-semibold">(ASP.NET Core & React.js)</span>
-          </h2>
+          <motion.h2
+            variants={itemVariants}
+            className="text-xl sm:text-2xl font-medium text-navy/80 dark:text-sky/90 flex flex-wrap items-center justify-center lg:justify-start gap-2"
+          >
+            Full Stack Developer <span className="text-teal font-mono text-base font-semibold">(ASP.NET Core &amp; React.js)</span>
+          </motion.h2>
 
           {/* Description */}
-          <p className="text-navy/70 dark:text-sky/80 text-base sm:text-lg max-w-xl leading-relaxed">
+          <motion.p
+            variants={itemVariants}
+            className="text-navy/70 dark:text-sky/80 text-base sm:text-lg max-w-xl leading-relaxed"
+          >
             Crafting scalable web applications, REST APIs, and intelligent data systems using <strong className="text-navy dark:text-white">ASP.NET Core</strong>, <strong className="text-navy dark:text-white">React.js</strong>, and <strong className="text-navy dark:text-white">SQL Server</strong>.
-          </p>
+          </motion.p>
 
           {/* Action Buttons */}
-          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2 w-full">
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2 w-full"
+          >
             <a href="#projects">
               <Button variant="glow" size="lg" className="gap-2">
                 View Projects
@@ -92,10 +261,13 @@ export default function Hero() {
               {copied ? <Check size={18} className="text-emerald-500" /> : <Copy size={18} />}
               {copied ? "Copied!" : "Copy Email"}
             </Button>
-          </div>
+          </motion.div>
 
           {/* Social Links & Highlights */}
-          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 pt-6 border-t border-sky/40 dark:border-sky/15 w-full">
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-wrap items-center justify-center lg:justify-start gap-6 pt-6 border-t border-sky/40 dark:border-sky/15 w-full"
+          >
             <div className="flex items-center gap-4">
               <a
                 href="https://github.com/kalsaraashish"
@@ -136,19 +308,26 @@ export default function Hero() {
                 <span className="text-navy dark:text-white font-bold font-serif text-sm">100%</span> Commitment
               </div>
             </div>
-          </div>
+          </motion.div>
         </motion.div>
 
-        {/* Right Column: Interactive Code Window */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="lg:col-span-5 relative"
-        >
-          <div className="glass-card p-1 border-sky/40 dark:border-sky/20 shadow-2xl overflow-hidden rounded-3xl">
+        {/* Right Column: Interactive Code Window with 3D Tilt */}
+        <div className="lg:col-span-5 relative" style={{ perspective: 1200 }}>
+          <motion.div
+            style={{
+              rotateX: rotateXSpring,
+              rotateY: rotateYSpring,
+              transformStyle: "preserve-3d",
+            }}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="glass-card p-1 border-sky/40 dark:border-sky/20 shadow-2xl overflow-hidden rounded-3xl interactive-card transition-shadow duration-300 hover:shadow-teal/20"
+          >
             {/* Window Header */}
-            <div className="flex items-center justify-between px-4 py-3 bg-navy-dark text-white rounded-t-[22px]">
+            <div className="flex items-center justify-between px-4 py-3 bg-navy-dark text-white rounded-t-[22px]" style={{ transform: "translateZ(15px)" }}>
               <div className="flex items-center gap-2">
                 <div className="w-3 h-3 rounded-full bg-rose-500/80" />
                 <div className="w-3 h-3 rounded-full bg-amber-500/80" />
@@ -161,7 +340,7 @@ export default function Hero() {
             </div>
 
             {/* Developer.cs Content */}
-            <div className="m-0 p-6 bg-navy-dark text-slate-100 font-mono text-xs md:text-sm leading-relaxed rounded-b-[22px] min-h-[300px]">
+            <div className="m-0 p-6 bg-navy-dark text-slate-100 font-mono text-xs md:text-sm leading-relaxed rounded-b-[22px] min-h-[300px]" style={{ transform: "translateZ(10px)" }}>
               <div className="space-y-1.5 text-slate-300">
                 <div><span className="text-teal-light">using</span> <span className="text-sky">System</span>;</div>
                 <div><span className="text-teal-light">namespace</span> <span className="text-emerald-400">AshishKalsara</span></div>
@@ -177,30 +356,33 @@ export default function Hero() {
                 <div>{'}'}</div>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-sky/15 flex items-center justify-between text-[11px] text-sky/60 font-mono">
+              <div className="mt-6 pt-4 border-t border-sky/15 flex items-center justify-between text-[11px] text-sky/60 font-mono" style={{ transform: "translateZ(15px)" }}>
                 <span className="flex items-center gap-1.5 text-emerald-400">
                   <Terminal size={14} /> Ready to deploy
                 </span>
                 <span>UTF-8</span>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Floating Badge */}
           <motion.div
             animate={{ y: [0, -8, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            style={{
+              transform: "translateZ(45px)",
+            }}
             className="absolute -bottom-6 -left-6 p-4 rounded-2xl bg-white/95 dark:bg-navy/90 backdrop-blur-xl border border-sky/40 dark:border-sky/20 shadow-xl hidden sm:flex items-center gap-3"
           >
             <div className="w-10 h-10 rounded-xl bg-teal/20 text-teal flex items-center justify-center font-bold">
               <BrainCircuit size={22} />
             </div>
             <div>
-              <div className="text-xs font-bold font-serif text-navy dark:text-white">Clean Code & Architecture</div>
+              <div className="text-xs font-bold font-serif text-navy dark:text-white">Clean Code &amp; Architecture</div>
               <div className="text-[10px] text-navy/60 dark:text-sky/70">ASP.NET Core • React.js • SQL Server</div>
             </div>
           </motion.div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

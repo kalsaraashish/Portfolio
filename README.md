@@ -1,209 +1,163 @@
 # 🌐 Ashish Kalsara Portfolio
 
-A modern and responsive personal portfolio website built with **React.js** and **Vite** to showcase my skills, projects, education, and professional journey.
+A premium, modern, and responsive personal portfolio website built with **Next.js 14** (App Router), **TypeScript**, **Tailwind CSS**, and **Framer Motion** to showcase my professional developer journey, technical skillset, projects, academic foundation, and contacts.
 
-## 🚀 Live Website
+## 🚀 Live Demo
 
-**Portfolio:** https://ashishkalsara.vercel.app/
-
----
-
-# 👨‍💻 About
-
-Hi! I'm **Ashish Kalsara**, an MCA student and aspiring **Full Stack Developer** with a passion for building modern web applications and AI-powered solutions.
-
-I enjoy developing responsive user interfaces, REST APIs, and machine learning applications while continuously learning new technologies.
+**Website Link:** [ashishkalsara.vercel.app](https://ashishkalsara.vercel.app/)
 
 ---
 
-# ✨ Features
+## 👨‍💻 About Me
 
-- Responsive Design
-- Modern UI/UX
-- Dark Theme
-- Hero Section
-- About Me
-- Technical Skills
-- Projects Showcase
-- Education Timeline
-- Contact Form
-- SEO Optimized
-- Fast Performance using Vite
+Hi! I'm **Ashish Kalsara**, an MCA student and aspiring **Full Stack Developer** specializing in building modern, scalable web applications and desktop tools.
+
+I focus on crafting pixel-perfect, responsive user interfaces and developing high-performance RESTful APIs.
 
 ---
 
-# 🛠 Tech Stack
+## ✨ Features
 
-## Frontend
-
-- React.js
-- Vite
-- JavaScript (ES6+)
-- HTML5
-- CSS3
-
-## Tools
-
-- Git
-- GitHub
-- Visual Studio Code
-
-## Deployment
-
-- Vercel
+- **Responsive Design & Modern UI/UX:** Built with Tailwind CSS, offering a premium and professional dark/light responsive interface.
+- **Micro-interactions:** Interactive hover states, custom cursor tracking, and smooth transitions powered by Framer Motion.
+- **Command Menu (CMD + K):** Interactive search console component (`CommandSearch.tsx`) allowing visitors to navigate the site using keyboard shortcut commands.
+- **Tech Stack Filter:** Dynamically categorizes skills into Frontend, Backend, and Developer Tools.
+- **Featured Projects Dialogs:** Shows interactive, detailed modal breakdowns of key projects.
+- **SEO & Performance Optimized:** Leveraging Next.js App Router for optimal performance, meta descriptions, and structural semantic markup.
 
 ---
 
-# 📁 Project Structure
+## 🛠 Tech Stack
+
+### Frontend & Styling
+
+- **Next.js 14** (App Router)
+- **React.js**
+- **TypeScript**
+- **Tailwind CSS**
+- **Framer Motion** (Fluid Animations)
+- **Radix UI Primitives** (Accessible UI blocks)
+- **Lucide Icons**
+
+### Backend & Databases
+
+- **ASP.NET Core Web API**
+- **C#**
+- **SQL Server**
+
+### Developer Tools & Workflows
+
+- **Git & GitHub**
+- **Visual Studio** / **VS Code**
+- **Postman** (API Client Testing)
+- **Vercel** (Cloud Deployment)
+
+---
+
+## 📁 Project Structure
 
 ```text
-kalsaraashish-portfolio/
-├── public/
-│   ├── robots.txt
-│   ├── sitemap.xml
-│   └── site.webmanifest
+portfolio-ashish/
+├── app/
+│   ├── globals.css         # Tailwind directives & CSS variable tokens
+│   ├── layout.tsx          # Root layout with ThemeProvider & fonts
+│   └── page.tsx            # Main entry point importing component layouts
 │
-├── src/
-│   ├── components/
-│   │   ├── Navbar.jsx
-│   │   ├── Hero.jsx
-│   │   ├── About.jsx
-│   │   ├── Skills.jsx
-│   │   ├── Projects.jsx
-│   │   ├── Education.jsx
-│   │   ├── Contact.jsx
-│   │   └── Footer.jsx
-│   │
-│   ├── context/
-│   │   └── ThemeContext.jsx
-│   │
-│   ├── App.jsx
-│   ├── main.jsx
-│   └── index.css
+├── components/
+│   ├── ui/                 # Accessible Radix primitives and styling cards
+│   ├── About.tsx           # Story summary, key metrics, and CTA
+│   ├── CommandSearch.tsx   # CMD/CTRL + K command menu component
+│   ├── Contact.tsx         # SMTP and email outreach contact form
+│   ├── CustomCursor.tsx    # Immersive cursor circle effect
+│   ├── Education.tsx       # Timeline of academic achievements
+│   ├── Footer.tsx          # Bottom branding and address references
+│   ├── Hero.tsx            # Landing viewport, dynamic greetings, resume CTA
+│   ├── Navbar.tsx          # Sticky responsive header with page anchors
+│   ├── Projects.tsx        # Grid & popup details for work samples
+│   ├── Skills.tsx          # Skill cards list tabbed by tech domain
+│   └── theme-provider.tsx  # Next-Themes provider wrapper
 │
-├── index.html
-├── package.json
-├── vite.config.js
-└── README.md
+├── lib/
+│   └── utils.ts            # Classnames merging helper (clsx & tailwind-merge)
+│
+├── public/                 # Static icons, favicons, project assets
+├── package.json            # Target scripts & NPM dependencies
+├── tailwind.config.ts      # Tailored theme configs & keyframes
+└── tsconfig.json           # TS rulesets and folder alias mappings
 ```
 
 ---
 
-# 📦 Installation
+## 📦 Getting Started
 
-Clone the repository
+### Prerequisites
 
-```bash
-git clone https://github.com/kalsaraashish/kalsaraashish-portfolio.git
-```
+Make sure you have Node.js (version 18+ recommended) and npm installed.
 
-Go to project folder
+### Installation
 
-```bash
-cd kalsaraashish-portfolio
-```
+1. **Clone the Repository**
 
-Install dependencies
+   ```bash
+   git clone https://github.com/kalsaraashish/Portfolio.git
+   ```
 
-```bash
-npm install
-```
+2. **Navigate into the Project Folder**
 
-Run development server
+   ```bash
+   cd Portfolio
+   ```
 
-```bash
-npm run dev
-```
+3. **Install Dependencies**
 
-Build project
+   ```bash
+   npm install
+   ```
 
-```bash
-npm run build
-```
+4. **Launch the Development Server**
 
-Preview production build
+   ```bash
+   npm run dev
+   ```
 
-```bash
-npm run preview
-```
+   Open `http://localhost:3000` inside your browser to view the application.
 
----
-
-# 📂 Portfolio Sections
-
-- 🏠 Home
-- 👨 About
-- 💻 Skills
-- 🚀 Projects
-- 🎓 Education
-- 📞 Contact
-- 📄 Footer
+5. **Build for Production**
+   ```bash
+   npm run build
+   ```
 
 ---
 
-# 🚀 Featured Projects
+## 🚀 Highlighted Projects
 
-### 🎯 Face Recognition Attendance System
+### 🎓 College Event Management System
 
-AI-powered attendance management system using Face Recognition and Machine Learning.
-
-**Technology**
-
-- Python
-- FastAPI
-- React
-- MySQL
-- OpenCV
-- Face Recognition
-
----
+- **Role:** Full Stack Web Application
+- **Tech Stack:** React, ASP.NET Core Web API, C#, SQL Server, Tailwind CSS
+- **Features:** Role-based access control, registration statuses, and custom REST API endpoints.
+- **Repository:** [College Event Management System](https://github.com/kalsaraashish/College-Event-Management-System)
 
 ### 📄 AllEdit Desktop Application
 
-Offline document and image conversion desktop software.
-
-**Technology**
-
-- C#
-- WPF
-- .NET 8
-- PDFSharp
-- Magick.NET
-- Ghostscript
+- **Role:** Offline Document Conversion Tool
+- **Tech Stack:** .NET 8, WPF, C#, LibreOffice, Ghostscript
+- **Features:** Local file merges, conversions, splits, ensuring 100% offline data privacy.
+- **Repository:** [AllEdit Desktop App](https://github.com/kalsaraashish/AllEdit-DesktopApp)
 
 ---
 
-### 🎉 College Event Management System
+## 📫 Let's Connect!
 
-Full Stack Event Management System for colleges.
-
-**Technology**
-
-- ASP.NET Core Web API
-- React.js
-- SQL Server
-- JWT Authentication
+- **Email:** [ashishkalsara@gmail.com](mailto:ashishkalsara@gmail.com)
+- **LinkedIn:** [linkedin.com/in/ashish-kalsara-dot-net](https://www.linkedin.com/in/ashish-kalsara-dot-net)
+- **GitHub:** [github.com/kalsaraashish](https://github.com/kalsaraashish)
+- **Live Portfolio:** [ashishkalsara.vercel.app](https://ashishkalsara.vercel.app/)
 
 ---
 
-# 📫 Contact
+## ⭐ Support
 
-**Ashish Kalsara**
+If you find this project helpful or inspiring, please consider giving it a ⭐ on GitHub!
 
-📧 Email: [ashishkalsara@gmail.com](mailto:[EMAIL_ADDRESS])
-
-💼 LinkedIn: https://www.linkedin.com/in/ashish-kalsara-dot-net
-
-🐙 GitHub: https://github.com/kalsaraashish
-
-🌐 Portfolio: https://ashishkalsara.vercel.app/
-
----
-
-# ⭐ Support
-
-If you like this project, consider giving it a ⭐ on GitHub.
-
----
-
-## Made with ❤️ by Ashish Kalsara
+_Made with ❤️ by Ashish Kalsara_
